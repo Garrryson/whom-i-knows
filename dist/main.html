@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Whom I Know</title>
+    <meta name="description" content="Поиск общих друзей вконтакте">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="css/libs1.min.css"/>
+    <link rel="stylesheet" href="css/main.min.css"/>
+
+    <script type="text/javascript" src="http://vk.com/js/api/share.js?93" charset="windows-1251"></script>
+</head>
+
+<body>
+    <!-- inject:forkme -->
+    <div class="github-fork-ribbon-wrapper left">
+    <div class="github-fork-ribbon">
+        <a href="https://vk.com/garrryson">Одмен!</a>
+    </div>
+</div>
+    <!-- endinject -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group has-feedback">
+                            <div class="input-group">
+                                <span class="input-group-addon">vk.com/</span>
+                                <input type="text" class="form-control" id="first" aria-describedby="firstStatus">
+                            </div>
+                            <span class="feedback feedback-user-name" aria-hidden="true"></span>
+                            <span class="feedback feedback-icon glyphicon" aria-hidden="true"></span>
+                            <span id="firstStatus" class="sr-only">(success)</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group has-feedback">
+                            <div class="input-group">
+                                <span class="input-group-addon">vk.com/</span>
+                                <input type="text" class="form-control" id="second" aria-describedby="secondStatus">
+                            </div>
+                            <span class="feedback feedback-user-name" aria-hidden="true"></span>
+                            <span class="feedback feedback-icon glyphicon" aria-hidden="true"></span>
+                            <span id="secondStatus" class="sr-only">(success)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-md-push-8">
+                        <div class="form-group btn-group search-button">
+                            <button type="button" class="btn btn-primary" id="startButton" data-toggle="modal" data-target="#startModal">Поиск</button>
+                            <button type="button" class="btn btn-primary" id="settingButton" data-toggle="modal" data-target="#settingModal" aria-expanded="false">
+                                <span class="glyphicon glyphicon-wrench"></span>
+                                <span class="sr-only"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-md-pull-4">
+                        <div class="form-group search-result-bar">
+                            <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
+                                <label class="btn btn-default btn-radio disabled">
+                                    <input type="radio" data-panel="count">Посчитать
+                                </label>
+                                <label class="btn btn-default btn-radio disabled">
+                                    <input type="radio" data-panel="write">Написать
+                                </label>
+                                <label class="btn btn-default btn-radio disabled">
+                                    <input type="radio" data-panel="draw">Нарисовать
+                                </label>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped active"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="result-panels">
+            <center>
+                <div class="result-panel" id="count">
+                </div>
+                <div class="result-panel" id="write">
+                    <ul class="list-group"></ul>
+                </div>
+                <div class="result-panel" id="draw"></div>
+                <!-- inject:share -->
+                <script type="text/javascript">
+    <!--
+    document.write(VK.Share.button({url: "http://Garrryson.github.io/whom-i-knows"},{type: "link_noicon", text: "Рассказать друзьям"}));
+    -->
+</script>
+                <!-- endinject -->
+            </center>
+        </div>
+    </div>
+
+    <!-- Setting modal begins -->
+    <div class="modal fade" id="settingModal" tabindex="-1" role="dialog" aria-labelledby="settingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="settingModalLabel">Настройки</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal setting-form">
+                        <label class="control-label">Длина цепочки</label>
+
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div id="length" class="slider"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Setting modal ends -->
+
+    <!-- Start modal begins -->
+    <div class="modal fade" id="startModal" tabindex="-1" role="dialog" aria-labelledby="startModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="startModalLabel">Начать поиск?</h4>
+                </div>
+                <div class="modal-body">
+                    При поиске всё будет люто лагать.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="search">Готов</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Не готов</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start modal ends -->
+
+    <!-- Empty modal begins -->
+    <div class="modal fade" id="emptyModal" tabindex="-1" role="dialog" aria-labelledby="emptyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="emptyModalLabel">Поиск завершен</h4>
+                </div>
+                <div class="modal-body">
+                    Общие пользователи не найдены. Попробуй увеличить максимальную длину цепочки.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Empty modal ends -->
+
+    <script src="js/libs.min.js"></script>
+    <script src="js/main.min.js"></script>
+
+    <!-- inject:analytics -->
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-62899318-1', 'auto');
+    ga('send', 'pageview');
+</script>
+    <!-- endinject -->
+</body>
+
+</html>
