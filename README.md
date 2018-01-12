@@ -1,5 +1,5 @@
 # whom-i-know
-Demo: http://artfultom.github.io/whom-i-know
+Demo: http://garrryson.github.io/whom-i-knows/dist/index.html
 
 ## Compatibility
 
